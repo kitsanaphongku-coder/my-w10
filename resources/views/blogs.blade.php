@@ -14,6 +14,7 @@
                 <th scope="col">Title</th>
                 <!-- <th scope="col">Content</th> -->
                 <th scope="col">Status</th>
+                <th scope="col">Edit</th>
                 <th scope="col">Control</th>
             </tr>
         </thead>
@@ -24,12 +25,13 @@
                     <!-- <td>{{ Str::limit($item->content, 20) }}</td> -->
                     <td>
                         @if ($item->status)
-                            <span class="btn btn-success"> เผยแพร่</span>
+                           <a href="{{route('change', $item->id) }}" class="btn btn-success"> เผยแพร่</a>
                         @else
-                            <span class="btn btn-danger"> ไม่เผยแพร่</span>
+                           <a href="{{route('change', $item->id) }}" class="btn btn-danger"> ไม่เผยแพร่</a>
                         @endif
                     </td>
-                    <td><a href="/delete/{{ $item->id }}" class="btn btn-danger"
+                    <td><a href="{{route('edit', $item->id) }}" class="btn btn-primary">แก้ไข</a></td>
+                    <td><a href="{{route('delete', $item->id) }}" class="btn btn-danger"
                             onclick="return confirm('คุณต้องการลบบทความนี้จริงหรือไม่?')">ลบ</a>
 
                 </tr>
